@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>UPenn Course Registration Mockup</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+		rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<p class="welcome-text">Welcome, Xiaorui</p>
+		<div class="container">
+			<button class="accordion active">
+				Search Classes
+				<span class="arrow rotate">&#9662;</span>
+			</button>
+			<div class="panel" style="display: block;">
+				<select id="semester">
+					<option selected>Fall 2025</option>
+					<option>Summer 2025</option>
+					<option>Spring 2026</option>
+				</select>
+
+				<input type="text" id="keyword" placeholder="Title, Subject, Instructor, Keyword">
+
+				<select id="method">
+					<option value="" disabled selected hidden>Instruction Method</option>
+					<option>Any</option>
+					<option>In-person</option>
+					<option>Online</option>
+					<option>Hybrid</option>
+				</select>
+
+				<button class="accordion blue nested">
+					Advanced Search Functions
+					<span class="arrow">&#9662;</span>
+				</button>
+				<div class="panel nested-panel">
+					<select id="subject" name="subject">
+						<option value="" disabled selected hidden>Subject</option>
+						<option value="math">Mathematics</option>
+						<option value="cs">Computer Science</option>
+						<option value="bio">Biology</option>
+					</select>
+
+					<select id="school" name="school">
+						<option value="" disabled selected hidden>School</option>
+						<option value="seas">Engineering</option>
+						<option value="wharton">Wharton</option>
+						<option value="sas">Arts & Sciences</option>
+					</select>
+
+					<select id="level" name="level">
+						<option value="" disabled selected hidden>Level</option>
+						<option value="ug">Undergraduate</option>
+						<option value="grad">Graduate</option>
+					</select>
+
+					<div class="checkbox-group">
+						<input type="checkbox" id="noOverlap" name="noOverlap">
+						<label for="noOverlap">Don't overlap Primary cart</label>
+					</div>
+				</div>
+				<div class="search-button">
+					Search
+				</div>
+			</div>
+			<button class="accordion red active">
+				Schedule Visualization
+				<span class="arrow">&#9662;</span>
+			</button>
+			<div class="panel schedule-panel" style="display: block;">
+				<div class="schedule-container">
+					<div class="left-column">
+						<input type="text" placeholder="Filter times" class="filter-input">
+						<div class="blue-button">Edit current cart</div>
+					</div>
+					<div class="right-column">
+						<div class="checkbox-group">
+							<input type="radio" id="exclude" name="timeToggle">
+							<label for="exclude">Exclude Time</label>
+						</div>
+						<div class="checkbox-group">
+							<input type="radio" id="include" name="timeToggle">
+							<label for="include">Include Time</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="calendar-wrapper">
+					<div class="calendar-header">
+						<div class="day">Mon</div>
+						<div class="day">Tues</div>
+						<div class="day">Wed</div>
+						<div class="day">Thur</div>
+						<div class="day">Fri</div>
+					</div>
+					<div class="grid">
+						<script>
+							const grid = document.querySelector('.grid');
+							const totalRows = 20;   
+							const rowsToRemove = 11;
+							const rows = totalRows - rowsToRemove; 
+							const cols = 5; 
+							grid.innerHTML = "";
+							for (let i = 0; i < rows * cols; i++) {
+								const div = document.createElement('div');
+								div.className = 'cell';
+								grid.appendChild(div);
+							}
+						</script>
+						<div class="overlay">
+							<span class="overlay-text">Find M/W Class.</span>
+						</div>
+
+						<div class="overlay" style="grid-column: 3 / 4; grid-row: 2 / 33;">
+							<span class="overlay-text">Find M/W Class.</span>
+						</div>
+
+						<div class="overlay pink" style="grid-column: 2 / 3; grid-row: 6 / 12;">
+							<span class="overlay-text">CIS 1070: Visual Culture <br> Room: AGH 214 <br> Time: 10:15 -
+								11:45</span>
+						</div>
+
+						<div class="overlay pink" style="grid-column: 4 / 5; grid-row: 6 / 12;">
+							<span class="overlay-text">CIS 1070: Visual Culture <br> Room: AGH 214 <br> Time: 10:15 -
+								11:45</span>
+						</div>
+
+						<div class="overlay orange" style="grid-column: 2 / 3; grid-row: 20 / 26;">
+							<span class="overlay-text">CIS 5000: Software Foundations <br> Room: Moor 216 <br> Time:
+								1:45 - 3:15</span>
+						</div>
+
+						<div class="overlay orange" style="grid-column: 4 / 5; grid-row: 20 / 26;">
+							<span class="overlay-text">CIS 5000: Software Foundations <br> Room: Moor 216 <br> Time:
+								1:45 - 3:15</span>
+						</div>
+
+						<div class="overlay blue" style="grid-column: 5 / 6; grid-row: 6 / 18;">
+							<span class="overlay-text">CIS 7000: HCI 2 <br> Room: Levine 1000 <br> Time:
+								10:15 - 1:15</span>
+						</div>
+						<div class="overlay red" style="grid-column: 2 / 3; grid-row: 1 / 5;">
+							<span class="overlay-text">Commute.</span>
+						</div>
+						<div class="overlay red" style="grid-column: 2 / 3; grid-row: 28 / 33;">
+							<span class="overlay-text">Commute.</span>
+						</div>
+						<div class="overlay red" style="grid-column: 4 / 5; grid-row: 1 / 5;">
+							<span class="overlay-text">Commute.</span>
+						</div>
+						<div class="overlay red" style="grid-column: 4 / 5; grid-row: 28 / 33;">
+							<span class="overlay-text">Commute.</span>
+						</div>
+						<div class="overlay red" style="grid-column: 5 / 6; grid-row: 20 / 33;">
+							<span class="overlay-text">Relax time.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-buttons">
+				<button class="btn-red">
+					<img src="assets/hamburger-icon.svg" alt="Menu" class="button-icon">
+					Suggestions and Carts
+				</button>
+				<button class="btn-blue">
+					Submit Schedule
+				</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+		document.querySelectorAll(".accordion").forEach((btn) => {
+			btn.addEventListener("click", function () {
+				this.classList.toggle("active");
+				const panel = this.nextElementSibling;
+				if (panel.style.display === "block") {
+					panel.style.display = "none";
+				} else {
+					panel.style.display = "block";
+				}
+				this.querySelector(".arrow").classList.toggle("rotate");
+			});
+		});
+	</script>
+</body>
+</html>
